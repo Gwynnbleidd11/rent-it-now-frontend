@@ -12,5 +12,6 @@ public class CartDto {
 
     private Long cartId;
     private Long userId;
+    private Long transactionId;
     private List<Long> movieIds;
 }

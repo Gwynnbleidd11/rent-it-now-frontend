@@ -11,6 +11,7 @@ import com.vaadin.flow.router.Route;
 public class HomeView extends VerticalLayout {
 
     private TopBarView topBarView = new TopBarView();
+    private WeatherView weatherView = new WeatherView();
 
     public HomeView() {
         getElement().getStyle().set("background-color", "#f0f0f0");
@@ -25,6 +26,7 @@ public class HomeView extends VerticalLayout {
         HorizontalLayout moviesLayout = new HorizontalLayout(movie1, movie2, movie3);
         moviesLayout.setSpacing(true);
         add(new H2("Welcome to Rent-It-Now!"), searchButton, new H2("Top 3 movies"), moviesLayout);
+        add(weatherView);
         setAlignItems(Alignment.CENTER);
         setSpacing(true);
         setSizeFull();

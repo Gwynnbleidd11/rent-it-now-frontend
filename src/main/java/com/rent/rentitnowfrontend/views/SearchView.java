@@ -25,8 +25,6 @@ import java.util.List;
 public class SearchView extends VerticalLayout {
 
     private TopBarView topBarView = new TopBarView();
-
-    private MovieService movieService = MovieService.getInstance();
     private Grid<MovieDto> grid = new Grid<>(MovieDto.class);
     private FormLayout form = setMovieForm();
     private TextField filterText = new TextField();
@@ -75,7 +73,7 @@ public class SearchView extends VerticalLayout {
         Button addToCartButton = new Button("Add to cart", event -> {
             MovieDto selectedMovie = grid.asSingleSelect().getValue();
             if (selectedMovie != null) {
-                cartClient.addMovieToCart(String.valueOf(2L), selectedMovie.getMovieId().toString());
+                cartClient.addMovieToCart(String.valueOf(1L), selectedMovie.getMovieId().toString());
                 Notification.show("Movie added to cart!");
             }
         });
@@ -84,7 +82,6 @@ public class SearchView extends VerticalLayout {
         form.add(goToMoviePageButton, addToCartButton);
         return form;
     }
-
 
     public void setMovie(MovieDto movieDto) {
         binder.setBean(movieDto);

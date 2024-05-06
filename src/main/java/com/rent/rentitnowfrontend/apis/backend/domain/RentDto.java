@@ -15,9 +15,10 @@ import java.time.LocalDate;
 public class RentDto {
 
     private Long rentId;
+    private MovieDto movie;
     private BigDecimal cost;
     private LocalDate rentDate;
     private LocalDate returnDate;
-    private MovieDto movie;
-    private UserDto user;
+    private Long userId;
+    private Long transactionId;
 }

@@ -22,6 +22,8 @@ public class IMDbClient {
     @Value("${RapidAPI-IMDb-Host}")
     private String imdbRapidApiEndpoint;
 
+    //I am not entirely sure, why I was not able to pass variables above to the code below as I was getting an error,
+    //so I hardcoded it for now
     //duplicated code, fix later
     public Integer getMatacriticScore(String imdbMovieId) {
         URI url = UriComponentsBuilder.fromHttpUrl("https://imdb8.p.rapidapi.com" + "/title/v2/get-metacritic")

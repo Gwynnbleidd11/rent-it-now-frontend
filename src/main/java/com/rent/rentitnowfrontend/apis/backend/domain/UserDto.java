@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +20,4 @@ public class UserDto {
     private String phoneNumber;
     private LocalDate birthDate;
     private LocalDate creationDate;
-    private List<RentDto> listOfRents;
 }

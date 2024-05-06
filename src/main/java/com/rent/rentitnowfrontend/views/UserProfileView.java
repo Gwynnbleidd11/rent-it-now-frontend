@@ -31,17 +31,17 @@ public class UserProfileView extends VerticalLayout {
         getElement().getStyle().set("background-color", "#f0f0f0");
         add(topBarView);
         HorizontalLayout hl = new HorizontalLayout();
-        VerticalLayout userDetailsLayout = setDetailsLayout(2L);
+        VerticalLayout userDetailsLayout = setDetailsLayout(1L);
         userDetailsLayout.setAlignItems(Alignment.CENTER);
         VerticalLayout rentsLayout = setUserRents();
         rentsLayout.setAlignItems(Alignment.CENTER);
         hl.add(userDetailsLayout, rentsLayout);
         hl.setSizeFull();
         add(hl);
+
         setAlignItems(Alignment.CENTER);
         setSizeFull();
         rentsLayout.setSizeFull();
-
         refresh();
     }
 
@@ -59,7 +59,7 @@ public class UserProfileView extends VerticalLayout {
         userDetailsLayout.add(yourDetails);
         for (Component detail : detailsList) {
             HorizontalLayout hl = new HorizontalLayout();
-            Button editButton = new Button("Edit");
+            Button editButton = new Button("Change");
             editButton.getStyle().set("cursor", "pointer");
             hl.add(detail, editButton);
             hl.setAlignItems(Alignment.BASELINE);
@@ -67,6 +67,7 @@ public class UserProfileView extends VerticalLayout {
         }
         return userDetailsLayout;
     }
+
     private VerticalLayout setUserRents() {
         VerticalLayout transactionLayout = new VerticalLayout();
         currentRentsGrid.setColumns("rentId", "movie", "cost", "rentDate", "returnDate");
@@ -79,9 +80,9 @@ public class UserProfileView extends VerticalLayout {
     }
 
     private void refresh() {
-        List<RentDto> rentsList = rentClient.getUserRents(2L );
+        List<RentDto> rentsList = rentClient.getUserRents(1L );
         rentsGrid.setItems(rentsList);
-        List<RentDto> currentRents = rentClient.getCurrentRents(2L);
+        List<RentDto> currentRents = rentClient.getCurrentRents(1L);
         currentRentsGrid.setItems(currentRents);
     }
 }

@@ -4,7 +4,6 @@ import com.rent.rentitnowfrontend.apis.backend.client.CartClient;
 import com.rent.rentitnowfrontend.apis.backend.client.MovieClient;
 import com.rent.rentitnowfrontend.apis.backend.domain.CartDto;
 import com.rent.rentitnowfrontend.apis.backend.domain.MovieDto;
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
@@ -27,7 +26,7 @@ public class CartView extends VerticalLayout {
         add(topBarView);
         VerticalLayout movieList = new VerticalLayout();
         movieList.setAlignItems(Alignment.CENTER);
-        CartDto cartDto = cartClient.getCart(2L);
+        CartDto cartDto = cartClient.getCart(1L);
         for (Long movieId: cartDto.getMovieIds()) {
             MovieDto movieDto = movieClient.getMovie(movieId.toString());
             addMovie(movieList, cartDto, movieDto);
@@ -54,7 +53,6 @@ public class CartView extends VerticalLayout {
             cartClient.removeMovieFromCart(cartDto.getCartId().toString(),
                     movieDto.getMovieId().toString());
             Notification.show("Movie removed from cart!");
-
         });
         movieLayout.add(new Div(movieDto.getTitle()), removeButton);
         movieLayout.setAlignItems(Alignment.BASELINE);

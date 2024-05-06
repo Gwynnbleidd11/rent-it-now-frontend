@@ -23,7 +23,7 @@ public class RentClient {
     private final String RENT_IT_NOW_URL = "http://localhost:8080";
 
     public List<RentDto> getUserRents(@PathVariable Long userId) {
-        URI url = UriComponentsBuilder.fromHttpUrl(RENT_IT_NOW_URL + "/rents/" + userId)
+        URI url = UriComponentsBuilder.fromHttpUrl(RENT_IT_NOW_URL + "/rents/user/" + userId)
                 .build().encode().toUri();
         RentDto[] rentsResponse = restTemplate.getForObject(url, RentDto[].class);
         return Optional.ofNullable(rentsResponse)
