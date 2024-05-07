@@ -85,4 +85,9 @@ public class UserProfileView extends VerticalLayout {
         List<RentDto> currentRents = rentClient.getCurrentRents(1L);
         currentRentsGrid.setItems(currentRents);
     }
+
+    private String getDivValue(final Component component) {
+        Div div = (Div) component;
+        return div.getText();
+    }
 }
